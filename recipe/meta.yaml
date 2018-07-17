@@ -1,31 +1,23 @@
-{%set name = "leather" %}
-{%set version = "0.3.3" %}
-{%set compress_type = "tar.gz" %}
-{%set hash_type = "sha256" %}
-{%set hash_val = "076d1603b5281488285718ce1a5ce78cf1027fe1e76adf9c548caf83c519b988" %}
-{%set build_num = "0" %}
+{% set version = "0.3.3" %}
 
 package:
-  name: {{ name|lower }}
+  name: leather
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.{{ compress_type }}
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ compress_type }}
-  {{ hash_type }}: {{ hash_val }}
+  url: https://pypi.io/packages/source/l/leather/leather-{{ version }}.tar.gz
+  sha256: 076d1603b5281488285718ce1a5ce78cf1027fe1e76adf9c548caf83c519b988
 
 build:
+  number: 0
   noarch: python
-  number: {{ build_num }}
   script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
   host:
-    - pip
     - python
-    - setuptools
+    - pip
     - six >=1.6.1
-
   run:
     - python
     - six >=1.6.1

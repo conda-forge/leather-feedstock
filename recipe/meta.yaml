@@ -1,4 +1,4 @@
-{% set version = "0.3.3" %}
+{% set version = "0.3.4" %}
 
 package:
   name: leather
@@ -6,20 +6,20 @@ package:
 
 source:
   url: https://pypi.io/packages/source/l/leather/leather-{{ version }}.tar.gz
-  sha256: 076d1603b5281488285718ce1a5ce78cf1027fe1e76adf9c548caf83c519b988
+  sha256: b43e21c8fa46b2679de8449f4d953c06418666dc058ce41055ee8a8d3bb40918
 
 build:
   number: 0
   noarch: python
-  script: python -m pip install --no-deps --ignore-installed .
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
-    - python
+    - python >=3.6
     - pip
     - six >=1.6.1
   run:
-    - python
+    - python >=3.6
     - six >=1.6.1
 
 test:
@@ -33,12 +33,14 @@ test:
 about:
   home: https://leather.rtfd.io
   license: MIT
+  license_file: COPYING
   license_family: MIT
   # license_file: COPYING - no MANIFEST - see https://docs.python.org/2/distutils/sourcedist.html#manifest-related-options
-  summary: 'Python charting for 80% of humans.'
+  summary: Python charting for 80% of humans.
   doc_url: https://leather.rtfd.io
   dev_url: https://github.com/wireservice/leather
 
 extra:
   recipe-maintainers:
     - pmlandwehr
+    - jan-janssen

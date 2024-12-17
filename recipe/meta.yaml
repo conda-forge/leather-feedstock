@@ -5,24 +5,26 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/l/leather/leather-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/l/leather/leather-{{ version }}.tar.gz
   sha256: b43e21c8fa46b2679de8449f4d953c06418666dc058ce41055ee8a8d3bb40918
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
     - six >=1.6.1
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - six >=1.6.1
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - leather
     - leather.scales

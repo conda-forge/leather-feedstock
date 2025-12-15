@@ -1,4 +1,4 @@
-{% set version = "0.4.0" %}
+{% set version = "0.4.1" %}
 
 package:
   name: leather
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/l/leather/leather-{{ version }}.tar.gz
-  sha256: f964bec2086f3153a6c16e707f20cb718f811f57af116075f4c0f4805c608b95
+  sha256: 67119c2aee93be821f077193bd8534e296c05b38bd174d9c5a80c4aa31d1a4d3
 
 build:
   number: 0
